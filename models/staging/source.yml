@@ -1,0 +1,12 @@
+version: 2
+sources:
+    - name: datafeed_shared_schema
+      database: sales
+      schema: raw_layer
+      tables:
+      - name : RAW_CUSTOMER
+      - name : raw_orders
+
+
+
+        
