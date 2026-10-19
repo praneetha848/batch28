@@ -4,7 +4,24 @@ sources:
       database: sales
       schema: raw_layer
       tables:
-      - name : RAW_CUSTOMER
-      - name : raw_orders
-
+        - name: RAW_CUSTOMER
+        - name : customers
+        - name : emp_sal 
+        - name : raw_orders
+          columns:
+            - name: id
+              tests:
+                - unique
+                - not_null
+            - name: status
+              tests:
+                - accepted_values:
+                    arguments:
+                      values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
         
+    - name: datafeed_public_schema
+      database: sales
+      schema: public
+      tables:
+
+      - name: customers

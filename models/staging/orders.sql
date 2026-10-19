@@ -1,4 +1,4 @@
-{{ config(materialized='ephemeral') }}
+{{ config(materialized='table') }}
 
 WITH tb1 as(
     select id,
@@ -6,5 +6,5 @@ WITH tb1 as(
     user_id,
     status
 
-    from {{source('datafeed_shared_schema','raw_orders')}})
+    from {{source('datafeed_shared_schema','raw_orders')}}) 
 select * from tb1
